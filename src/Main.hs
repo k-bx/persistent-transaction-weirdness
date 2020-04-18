@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# LANGUAGE DerivingStrategies #-}
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE GADTs #-}
@@ -10,9 +9,11 @@
 {-# LANGUAGE TemplateHaskell #-}
 {-# LANGUAGE TypeFamilies #-}
 {-# LANGUAGE UndecidableInstances #-}
+{-# OPTIONS_GHC -fno-warn-orphans #-}
 
 module Main where
 
+import qualified Control.Concurrent
 import Control.Monad.Logger (MonadLogger (..), fromLogStr, toLogStr)
 import Control.Monad.Trans.Reader
 import Data.Pool
@@ -24,8 +25,10 @@ import UnliftIO
 
 -- | 'P.withPostgresqlPool' needs this.
 instance MonadLogger IO where
-  monadLoggerLog _loc _logSource _logLevel msg =
-    liftIO (S.hPutStrLn stderr (fromLogStr (toLogStr msg)))
+  monadLoggerLog _loc _logSource _logLevel msg = do
+    tid <- Control.Concurrent.myThreadId
+    let tidStrPart = S.fromString $ "[" <> show tid <> "] "
+    liftIO (S.hPutStrLn stderr (tidStrPart <> (fromLogStr (toLogStr msg))))
 
 share
   [mkPersist sqlSettings, mkDeleteCascade sqlSettings, mkMigrate "migrateAll"]
