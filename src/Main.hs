@@ -15,12 +15,14 @@
 module Main where
 
 import qualified Control.Concurrent
+import Control.Monad
 import Control.Monad.Logger (MonadLogger (..), fromLogStr, toLogStr)
 import Control.Monad.Trans.Reader
 import Data.Pool
 import qualified Data.String.Class as S
 import qualified Data.Text as T
 import qualified Database.Esqueleto as E
+import qualified Database.Esqueleto.PostgreSQL as E
 import qualified Database.Persist.Postgresql as P
 import Database.Persist.TH
 import Text.InterpolatedString.Perl6 (q)
@@ -58,17 +60,34 @@ main = do
           Just _neProp -> do
             pure ()
           Nothing -> do
+            let v =
+                  NamedPropers
+                    { namedPropersEntity = name,
+                      namedPropersProper = T.toLower name
+                    }
             E.rawExecute
               [q|insert into named_propers (entity, proper) values (?, ?)
                  on conflict do nothing|]
               [P.PersistText (T.toLower name), P.PersistText name]
-            P.repsert
-              (NamedPropersKey name)
-              ( NamedPropers
-                  { namedPropersEntity = name,
-                    namedPropersProper = T.toLower name
-                  }
-              )
+
+-- E.rawExecute
+--   [q|insert into named_propers (entity, proper) values (?, ?)
+--      on conflict do nothing|]
+--   [P.PersistText (T.toLower name), P.PersistText name]
+-- (NamedPropersKey name)
+-- ( NamedPropers
+--     { namedPropersEntity = name,
+--       namedPropersProper = T.toLower name
+--     }
+-- )
+
+-- P.repsert
+--   (NamedPropersKey name)
+--   ( NamedPropers
+--       { namedPropersEntity = name,
+--         namedPropersProper = T.toLower name
+--       }
+--   )
 
 runDb :: Pool P.SqlBackend -> ReaderT P.SqlBackend IO b -> IO b
 runDb pool f = do

@@ -40,3 +40,6 @@ executable persistent-transaction-weirdness
                -rtsopts
                -with-rtsopts=-N
                -O
+               -ddump-to-file
+               -ddump-splices
+
