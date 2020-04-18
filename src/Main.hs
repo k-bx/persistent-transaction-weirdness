@@ -74,6 +74,7 @@ main = do
                 [P.PersistText (T.toLower name), P.PersistText name]
             -- this works fine, but needs you to properly match the fields
             when True $ do
+              -- see https://github.com/yesodweb/persistent/issues/1075
               void $ P.upsert v [NamedPropersProper P.=. T.toLower name]
             -- this fails
             when True $ do
