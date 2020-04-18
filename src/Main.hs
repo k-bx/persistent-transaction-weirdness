@@ -1,3 +1,4 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# LANGUAGE DerivingStrategies #-}
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE GADTs #-}
@@ -17,7 +18,6 @@ import Control.Monad.Trans.Reader
 import Data.Pool
 import qualified Data.String.Class as S
 import qualified Data.Text as T
-import Database.Persist.Postgresql
 import qualified Database.Persist.Postgresql as P
 import Database.Persist.TH
 import UnliftIO
@@ -43,12 +43,13 @@ main = do
   P.withPostgresqlPool (S.fromText connString) 5 $ \pool ->
     flip P.runSqlPool pool $ P.runMigration migrateAll
   let streamOfNames = take 1000000 (cycle ["John", "Paul", "George", "Ringo"])
-  P.withPostgresqlPool (S.fromText connString) 5 $ \pool ->
+  P.withPostgresqlPool (S.fromText connString) 5 $ \pool -> do
+    runDb pool $ P.deleteWhere ([] :: [P.Filter NamedPropers])
     UnliftIO.pooledForConcurrentlyN_ 8 streamOfNames $ \name -> do
       runDb pool $ do
         mNEProp <- P.get (NamedPropersKey name)
         case mNEProp of
-          Just neProp -> do
+          Just _neProp -> do
             pure ()
           Nothing -> do
             P.repsert
