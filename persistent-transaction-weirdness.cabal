@@ -27,6 +27,8 @@ executable persistent-transaction-weirdness
                      , resource-pool
                      , transformers
                      , monad-logger
+                     , interpolatedstring-perl6
+                     , esqueleto
   ghc-options: -Wall
                -Wcompat
                -Widentities

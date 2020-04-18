@@ -5,6 +5,7 @@
 {-# LANGUAGE MultiParamTypeClasses #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE QuasiQuotes #-}
+{-# LANGUAGE ScopedTypeVariables #-}
 {-# LANGUAGE StandaloneDeriving #-}
 {-# LANGUAGE TemplateHaskell #-}
 {-# LANGUAGE TypeFamilies #-}
@@ -19,8 +20,10 @@ import Control.Monad.Trans.Reader
 import Data.Pool
 import qualified Data.String.Class as S
 import qualified Data.Text as T
+import qualified Database.Esqueleto as E
 import qualified Database.Persist.Postgresql as P
 import Database.Persist.TH
+import Text.InterpolatedString.Perl6 (q)
 import UnliftIO
 
 -- | 'P.withPostgresqlPool' needs this.
@@ -45,7 +48,7 @@ main = do
   let connString = "host=localhost port=5432 user=postgres dbname=persistent_transaction_weirdness password=password"
   P.withPostgresqlPool (S.fromText connString) 5 $ \pool ->
     flip P.runSqlPool pool $ P.runMigration migrateAll
-  let streamOfNames = take 1000000 (cycle ["John", "Paul", "George", "Ringo"])
+  let streamOfNames = take 10000 (cycle ["John", "Paul", "George", "Ringo"])
   P.withPostgresqlPool (S.fromText connString) 5 $ \pool -> do
     runDb pool $ P.deleteWhere ([] :: [P.Filter NamedPropers])
     UnliftIO.pooledForConcurrentlyN_ 8 streamOfNames $ \name -> do
@@ -55,6 +58,10 @@ main = do
           Just _neProp -> do
             pure ()
           Nothing -> do
+            E.rawExecute
+              [q|insert into named_propers (entity, proper) values (?, ?)
+                 on conflict do nothing|]
+              [P.PersistText (T.toLower name), P.PersistText name]
             P.repsert
               (NamedPropersKey name)
               ( NamedPropers
@@ -65,4 +72,5 @@ main = do
 
 runDb :: Pool P.SqlBackend -> ReaderT P.SqlBackend IO b -> IO b
 runDb pool f = do
+  -- liftIO $ flip P.runSqlPoolWithIsolation pool f P.Serializable
   liftIO $ flip P.runSqlPool pool $ f
