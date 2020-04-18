@@ -1,0 +1,1840 @@
+/home/kb/workspace/persistent-transaction-weirdness/src/Main.hs:(39,21)-(46,2): Splicing expression
+    template-haskell-2.15.0.0:Language.Haskell.TH.Quote.quoteExp
+      persistLowerCase
+      "\n\
+      \-- Maps entity to its proper form\n\
+      \NamedPropers\n\
+      \    entity T.Text\n\
+      \    proper T.Text\n\
+      \    Primary entity\n\
+      \    UniqueEntity entity\n"
+  ======>
+    [((((((((((P.EntityDef (P.HaskellName (T.pack "NamedPropers")))
+                (P.DBName (T.pack "named_propers")))
+               ((((((((P.FieldDef (P.HaskellName (T.pack "Id")))
+                        (P.DBName (T.pack "id")))
+                       ((P.FTTypeCon Nothing) (T.pack "NamedPropersId")))
+                      (P.SqlOther (T.pack "Primary Key")))
+                     [])
+                    True)
+                   (P.CompositeRef
+                      ((P.CompositeDef
+                          [(((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                                   (P.DBName (T.pack "entity")))
+                                  ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                                 (P.SqlOther (T.pack "SqlType unset for entity")))
+                                [])
+                               True)
+                              P.NoReference)
+                             Nothing])
+                         [])))
+                  Nothing))
+              [])
+             [(((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                      (P.DBName (T.pack "entity")))
+                     ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                    (P.SqlOther (T.pack "SqlType unset for entity")))
+                   [])
+                  True)
+                 P.NoReference)
+                Nothing,
+              (((((((P.FieldDef (P.HaskellName (T.pack "proper")))
+                      (P.DBName (T.pack "proper")))
+                     ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                    (P.SqlOther (T.pack "SqlType unset for proper")))
+                   [])
+                  True)
+                 P.NoReference)
+                Nothing])
+            [(((P.UniqueDef (P.HaskellName (T.pack "UniqueEntity")))
+                 (P.DBName (T.pack "unique_entity")))
+                [(P.HaskellName (T.pack "entity"), P.DBName (T.pack "entity"))])
+               []])
+           [])
+          [])
+         (containers-0.6.2.1:Data.Map.Internal.fromDistinctAscList []))
+        False)
+       Nothing
+       {P.entityFields = [(((((((P.FieldDef
+                                   (P.HaskellName (T.pack "entity")))
+                                  (P.DBName (T.pack "entity")))
+                                 ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                                (P.sqlType (Data.Proxy.Proxy :: Data.Proxy.Proxy T.Text)))
+                               [])
+                              True)
+                             P.NoReference)
+                            Nothing,
+                          (((((((P.FieldDef (P.HaskellName (T.pack "proper")))
+                                  (P.DBName (T.pack "proper")))
+                                 ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                                (P.sqlType (Data.Proxy.Proxy :: Data.Proxy.Proxy T.Text)))
+                               [])
+                              True)
+                             P.NoReference)
+                            Nothing],
+        P.entityId = (((((((P.FieldDef (P.HaskellName (T.pack "Id")))
+                             (P.DBName (T.pack "id")))
+                            ((P.FTTypeCon Nothing) (T.pack "NamedPropersId")))
+                           (P.SqlOther (T.pack "Composite Reference")))
+                          [])
+                         True)
+                        (P.CompositeRef
+                           ((P.CompositeDef
+                               [(((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                                        (P.DBName (T.pack "entity")))
+                                       ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                                      (P.SqlOther (T.pack "SqlType unset for entity")))
+                                     [])
+                                    True)
+                                   P.NoReference)
+                                  Nothing])
+                              [])))
+                       Nothing}]
+/home/kb/workspace/persistent-transaction-weirdness/src/Main.hs:(37,1)-(46,2): Splicing declarations
+    share
+      [mkPersist sqlSettings, mkDeleteCascade sqlSettings,
+       mkMigrate "migrateAll"]
+      ([((((((((((P.EntityDef (P.HaskellName (T.pack "NamedPropers")))
+                   (P.DBName (T.pack "named_propers")))
+                  ((((((((P.FieldDef (P.HaskellName (T.pack "Id")))
+                           (P.DBName (T.pack "id")))
+                          ((P.FTTypeCon Nothing) (T.pack "NamedPropersId")))
+                         (P.SqlOther (T.pack "Primary Key")))
+                        [])
+                       True)
+                      (P.CompositeRef
+                         ((P.CompositeDef
+                             [(((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                                      (P.DBName (T.pack "entity")))
+                                     ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                                    (P.SqlOther (T.pack "SqlType unset for entity")))
+                                   [])
+                                  True)
+                                 P.NoReference)
+                                Nothing])
+                            [])))
+                     Nothing))
+                 [])
+                [(((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                         (P.DBName (T.pack "entity")))
+                        ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                       (P.SqlOther (T.pack "SqlType unset for entity")))
+                      [])
+                     True)
+                    P.NoReference)
+                   Nothing,
+                 (((((((P.FieldDef (P.HaskellName (T.pack "proper")))
+                         (P.DBName (T.pack "proper")))
+                        ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                       (P.SqlOther (T.pack "SqlType unset for proper")))
+                      [])
+                     True)
+                    P.NoReference)
+                   Nothing])
+               [(((P.UniqueDef (P.HaskellName (T.pack "UniqueEntity")))
+                    (P.DBName (T.pack "unique_entity")))
+                   [(P.HaskellName (T.pack "entity"), P.DBName (T.pack "entity"))])
+                  []])
+              [])
+             [])
+            (containers-0.6.2.1:Data.Map.Internal.fromDistinctAscList []))
+           False)
+          Nothing
+          {P.entityFields = [(((((((P.FieldDef
+                                      (P.HaskellName (T.pack "entity")))
+                                     (P.DBName (T.pack "entity")))
+                                    ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                                   (P.sqlType (Data.Proxy.Proxy :: Data.Proxy.Proxy T.Text)))
+                                  [])
+                                 True)
+                                P.NoReference)
+                               Nothing,
+                             (((((((P.FieldDef (P.HaskellName (T.pack "proper")))
+                                     (P.DBName (T.pack "proper")))
+                                    ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                                   (P.sqlType (Data.Proxy.Proxy :: Data.Proxy.Proxy T.Text)))
+                                  [])
+                                 True)
+                                P.NoReference)
+                               Nothing],
+           P.entityId = (((((((P.FieldDef (P.HaskellName (T.pack "Id")))
+                                (P.DBName (T.pack "id")))
+                               ((P.FTTypeCon Nothing) (T.pack "NamedPropersId")))
+                              (P.SqlOther (T.pack "Composite Reference")))
+                             [])
+                            True)
+                           (P.CompositeRef
+                              ((P.CompositeDef
+                                  [(((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                                           (P.DBName (T.pack "entity")))
+                                          ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                                         (P.SqlOther (T.pack "SqlType unset for entity")))
+                                        [])
+                                       True)
+                                      P.NoReference)
+                                     Nothing])
+                                 [])))
+                          Nothing}])
+  ======>
+    instance P.PersistField NamedPropers where
+      P.toPersistValue = Database.Persist.TH.entityToPersistValueHelper
+      P.fromPersistValue
+        = Database.Persist.TH.entityFromPersistValueHelper
+            ["entity", "proper"]
+    instance P.PersistFieldSql NamedPropers where
+      P.sqlType _ = P.SqlString
+    data NamedPropers
+      = NamedPropers {namedPropersEntity :: !T.Text,
+                      namedPropersProper :: !T.Text}
+    type NamedPropersId = P.Key NamedPropers
+    instance P.PersistEntity NamedPropers where
+      type P.PersistEntityBackend NamedPropers = P.SqlBackend
+      data P.Unique NamedPropers
+        = UniqueEntity T.Text
+        deriving Show
+      newtype P.Key NamedPropers
+        = NamedPropersKey {unNamedPropersKey :: T.Text}
+        deriving newtype (Show,
+                          Read,
+                          Eq,
+                          Ord,
+                          path-pieces-0.2.1:Web.PathPieces.PathPiece,
+                          http-api-data-0.4.1.1:Web.Internal.HttpApiData.ToHttpApiData,
+                          http-api-data-0.4.1.1:Web.Internal.HttpApiData.FromHttpApiData,
+                          P.PersistField,
+                          P.PersistFieldSql,
+                          aeson-1.4.7.1:Data.Aeson.Types.ToJSON.ToJSON,
+                          aeson-1.4.7.1:Data.Aeson.Types.FromJSON.FromJSON)
+      data P.EntityField NamedPropers typ
+        = typ ~ NamedPropersId => NamedPropersId |
+          typ ~ T.Text => NamedPropersEntity |
+          typ ~ T.Text => NamedPropersProper
+      P.keyToValues record
+        = [P.toPersistValue (unNamedPropersKey record)]
+      P.keyFromValues [x1_akqv]
+        = NamedPropersKey
+            <$>
+              (Database.Persist.TH.mapLeft
+                 ((fieldError (T.pack "named_propers")) (T.pack "entity"))
+                 . P.fromPersistValue)
+                x1_akqv
+      P.keyFromValues x_akqu
+        = (Left
+             $ (mappend (T.pack "NamedPropers: keyFromValues failed on: "))
+                 (T.pack $ show x_akqu))
+      P.entityDef _
+        = ((((((((((P.EntityDef (P.HaskellName (T.pack "NamedPropers")))
+                     (P.DBName (T.pack "named_propers")))
+                    ((((((((P.FieldDef (P.HaskellName (T.pack "Id")))
+                             (P.DBName (T.pack "id")))
+                            ((P.FTTypeCon Nothing) (T.pack "NamedPropersId")))
+                           (P.SqlOther (T.pack "Composite Reference")))
+                          [])
+                         True)
+                        (P.CompositeRef
+                           ((P.CompositeDef
+                               [(((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                                        (P.DBName (T.pack "entity")))
+                                       ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                                      (P.SqlOther (T.pack "SqlType unset for entity")))
+                                     [])
+                                    True)
+                                   P.NoReference)
+                                  Nothing])
+                              [])))
+                       Nothing))
+                   [])
+                  [(((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                           (P.DBName (T.pack "entity")))
+                          ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                         P.SqlString)
+                        [])
+                       True)
+                      P.NoReference)
+                     Nothing,
+                   (((((((P.FieldDef (P.HaskellName (T.pack "proper")))
+                           (P.DBName (T.pack "proper")))
+                          ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                         P.SqlString)
+                        [])
+                       True)
+                      P.NoReference)
+                     Nothing])
+                 [(((P.UniqueDef (P.HaskellName (T.pack "UniqueEntity")))
+                      (P.DBName (T.pack "unique_entity")))
+                     [(P.HaskellName (T.pack "entity"), P.DBName (T.pack "entity"))])
+                    []])
+                [])
+               [])
+              (containers-0.6.2.1:Data.Map.Internal.fromDistinctAscList []))
+             False)
+            Nothing
+      P.toPersistFields (NamedPropers x_akqm x_akqn)
+        = [P.SomePersistField x_akqm, P.SomePersistField x_akqn]
+      P.fromPersistValues [x1_akqp, x2_akqq]
+        = NamedPropers
+            <$>
+              (Database.Persist.TH.mapLeft
+                 ((fieldError (T.pack "named_propers")) (T.pack "entity"))
+                 . P.fromPersistValue)
+                x1_akqp
+            <*>
+              (Database.Persist.TH.mapLeft
+                 ((fieldError (T.pack "named_propers")) (T.pack "proper"))
+                 . P.fromPersistValue)
+                x2_akqq
+      P.fromPersistValues x_akqo
+        = (Left
+             $ (mappend (T.pack "NamedPropers: fromPersistValues failed on: "))
+                 (T.pack $ show x_akqo))
+      P.persistUniqueToFieldNames UniqueEntity {}
+        = [(P.HaskellName (T.pack "entity"), P.DBName (T.pack "entity"))]
+      P.persistUniqueToValues (UniqueEntity x_akqr)
+        = [P.toPersistValue x_akqr]
+      P.persistUniqueKeys (NamedPropers _entity_akqs _proper_akqt)
+        = [UniqueEntity _entity_akqs]
+      P.persistFieldDef NamedPropersId
+        = (((((((P.FieldDef (P.HaskellName (T.pack "Id")))
+                  (P.DBName (T.pack "id")))
+                 ((P.FTTypeCon Nothing) (T.pack "NamedPropersId")))
+                (P.SqlOther (T.pack "Composite Reference")))
+               [])
+              True)
+             (P.CompositeRef
+                ((P.CompositeDef
+                    [(((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                             (P.DBName (T.pack "entity")))
+                            ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                           (P.SqlOther (T.pack "SqlType unset for entity")))
+                          [])
+                         True)
+                        P.NoReference)
+                       Nothing])
+                   [])))
+            Nothing
+      P.persistFieldDef NamedPropersEntity
+        = (((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                  (P.DBName (T.pack "entity")))
+                 ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                P.SqlString)
+               [])
+              True)
+             P.NoReference)
+            Nothing
+      P.persistFieldDef NamedPropersProper
+        = (((((((P.FieldDef (P.HaskellName (T.pack "proper")))
+                  (P.DBName (T.pack "proper")))
+                 ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                P.SqlString)
+               [])
+              True)
+             P.NoReference)
+            Nothing
+      P.persistIdField = NamedPropersId
+      P.fieldLens NamedPropersId
+        = (lensPTH P.entityKey)
+            (\ (P.Entity _ value_akqw) key_akqx
+               -> (P.Entity key_akqx) value_akqw)
+      P.fieldLens NamedPropersEntity
+        = (lensPTH (namedPropersEntity . P.entityVal))
+            (\ (P.Entity key_akqy value_akqz) x_akqA
+               -> (P.Entity key_akqy) value_akqz {namedPropersEntity = x_akqA})
+      P.fieldLens NamedPropersProper
+        = (lensPTH (namedPropersProper . P.entityVal))
+            (\ (P.Entity key_akqy value_akqz) x_akqA
+               -> (P.Entity key_akqy) value_akqz {namedPropersProper = x_akqA})
+    instance OnlyOneUniqueKey NamedPropers where
+      onlyUniqueP = (head . P.persistUniqueKeys)
+    instance AtLeastOneUniqueKey NamedPropers where
+      requireUniquesP
+        = (Data.List.NonEmpty.fromList . P.persistUniqueKeys)
+    instance (P.PersistQuery backend,
+              P.PersistEntityBackend NamedPropers ~ P.BaseBackend backend) =>
+             P.DeleteCascade NamedPropers backend where
+      P.deleteCascade key_akqB = do P.delete key_akqB
+    migrateAll :: P.Migration
+    migrateAll
+      = do let defs_akqC
+                 = [((((((((((P.EntityDef (P.HaskellName (T.pack "NamedPropers")))
+                               (P.DBName (T.pack "named_propers")))
+                              ((((((((P.FieldDef (P.HaskellName (T.pack "Id")))
+                                       (P.DBName (T.pack "id")))
+                                      ((P.FTTypeCon Nothing) (T.pack "NamedPropersId")))
+                                     (P.SqlOther (T.pack "Composite Reference")))
+                                    [])
+                                   True)
+                                  (P.CompositeRef
+                                     ((P.CompositeDef
+                                         [(((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                                                  (P.DBName (T.pack "entity")))
+                                                 ((P.FTTypeCon (Just (T.pack "T")))
+                                                    (T.pack "Text")))
+                                                (P.SqlOther (T.pack "SqlType unset for entity")))
+                                               [])
+                                              True)
+                                             P.NoReference)
+                                            Nothing])
+                                        [])))
+                                 Nothing))
+                             [])
+                            [(((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                                     (P.DBName (T.pack "entity")))
+                                    ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                                   P.SqlString)
+                                  [])
+                                 True)
+                                P.NoReference)
+                               Nothing,
+                             (((((((P.FieldDef (P.HaskellName (T.pack "proper")))
+                                     (P.DBName (T.pack "proper")))
+                                    ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                                   P.SqlString)
+                                  [])
+                                 True)
+                                P.NoReference)
+                               Nothing])
+                           [(((P.UniqueDef (P.HaskellName (T.pack "UniqueEntity")))
+                                (P.DBName (T.pack "unique_entity")))
+                               [(P.HaskellName (T.pack "entity"), P.DBName (T.pack "entity"))])
+                              []])
+                          [])
+                         [])
+                        (containers-0.6.2.1:Data.Map.Internal.fromDistinctAscList []))
+                       False)
+                      Nothing]
+           (P.migrate defs_akqC)
+             (((((((((((P.EntityDef (P.HaskellName (T.pack "NamedPropers")))
+                         (P.DBName (T.pack "named_propers")))
+                        ((((((((P.FieldDef (P.HaskellName (T.pack "Id")))
+                                 (P.DBName (T.pack "id")))
+                                ((P.FTTypeCon Nothing) (T.pack "NamedPropersId")))
+                               (P.SqlOther (T.pack "Composite Reference")))
+                              [])
+                             True)
+                            (P.CompositeRef
+                               ((P.CompositeDef
+                                   [(((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                                            (P.DBName (T.pack "entity")))
+                                           ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                                          (P.SqlOther (T.pack "SqlType unset for entity")))
+                                         [])
+                                        True)
+                                       P.NoReference)
+                                      Nothing])
+                                  [])))
+                           Nothing))
+                       [])
+                      [(((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                               (P.DBName (T.pack "entity")))
+                              ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                             P.SqlString)
+                            [])
+                           True)
+                          P.NoReference)
+                         Nothing,
+                       (((((((P.FieldDef (P.HaskellName (T.pack "proper")))
+                               (P.DBName (T.pack "proper")))
+                              ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                             P.SqlString)
+                            [])
+                           True)
+                          P.NoReference)
+                         Nothing])
+                     [(((P.UniqueDef (P.HaskellName (T.pack "UniqueEntity")))
+                          (P.DBName (T.pack "unique_entity")))
+                         [(P.HaskellName (T.pack "entity"), P.DBName (T.pack "entity"))])
+                        []])
+                    [])
+                   [])
+                  (containers-0.6.2.1:Data.Map.Internal.fromDistinctAscList []))
+                 False)
+                Nothing)
+/home/kb/workspace/persistent-transaction-weirdness/src/Main.hs:(71,20)-(72,43): Splicing expression
+    template-haskell-2.15.0.0:Language.Haskell.TH.Quote.quoteExp
+      q
+      "insert into named_propers (entity, proper) values (?, ?)\n\
+      \                   on conflict do nothing"
+  ======>
+    Data.String.fromString
+      "insert into named_propers (entity, proper) values (?, ?)
+                   on conflict do nothing"
+/home/kb/workspace/persistent-transaction-weirdness/src/Main.hs:(39,21)-(46,2): Splicing expression
+    template-haskell-2.15.0.0:Language.Haskell.TH.Quote.quoteExp
+      persistLowerCase
+      "\n\
+      \-- Maps entity to its proper form\n\
+      \NamedPropers\n\
+      \    entity T.Text\n\
+      \    proper T.Text\n\
+      \    Primary entity\n\
+      \    UniqueEntity entity\n"
+  ======>
+    [((((((((((P.EntityDef (P.HaskellName (T.pack "NamedPropers")))
+                (P.DBName (T.pack "named_propers")))
+               ((((((((P.FieldDef (P.HaskellName (T.pack "Id")))
+                        (P.DBName (T.pack "id")))
+                       ((P.FTTypeCon Nothing) (T.pack "NamedPropersId")))
+                      (P.SqlOther (T.pack "Primary Key")))
+                     [])
+                    True)
+                   (P.CompositeRef
+                      ((P.CompositeDef
+                          [(((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                                   (P.DBName (T.pack "entity")))
+                                  ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                                 (P.SqlOther (T.pack "SqlType unset for entity")))
+                                [])
+                               True)
+                              P.NoReference)
+                             Nothing])
+                         [])))
+                  Nothing))
+              [])
+             [(((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                      (P.DBName (T.pack "entity")))
+                     ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                    (P.SqlOther (T.pack "SqlType unset for entity")))
+                   [])
+                  True)
+                 P.NoReference)
+                Nothing,
+              (((((((P.FieldDef (P.HaskellName (T.pack "proper")))
+                      (P.DBName (T.pack "proper")))
+                     ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                    (P.SqlOther (T.pack "SqlType unset for proper")))
+                   [])
+                  True)
+                 P.NoReference)
+                Nothing])
+            [(((P.UniqueDef (P.HaskellName (T.pack "UniqueEntity")))
+                 (P.DBName (T.pack "unique_entity")))
+                [(P.HaskellName (T.pack "entity"), P.DBName (T.pack "entity"))])
+               []])
+           [])
+          [])
+         (containers-0.6.2.1:Data.Map.Internal.fromDistinctAscList []))
+        False)
+       Nothing
+       {P.entityFields = [(((((((P.FieldDef
+                                   (P.HaskellName (T.pack "entity")))
+                                  (P.DBName (T.pack "entity")))
+                                 ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                                (P.sqlType (Data.Proxy.Proxy :: Data.Proxy.Proxy T.Text)))
+                               [])
+                              True)
+                             P.NoReference)
+                            Nothing,
+                          (((((((P.FieldDef (P.HaskellName (T.pack "proper")))
+                                  (P.DBName (T.pack "proper")))
+                                 ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                                (P.sqlType (Data.Proxy.Proxy :: Data.Proxy.Proxy T.Text)))
+                               [])
+                              True)
+                             P.NoReference)
+                            Nothing],
+        P.entityId = (((((((P.FieldDef (P.HaskellName (T.pack "Id")))
+                             (P.DBName (T.pack "id")))
+                            ((P.FTTypeCon Nothing) (T.pack "NamedPropersId")))
+                           (P.SqlOther (T.pack "Composite Reference")))
+                          [])
+                         True)
+                        (P.CompositeRef
+                           ((P.CompositeDef
+                               [(((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                                        (P.DBName (T.pack "entity")))
+                                       ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                                      (P.SqlOther (T.pack "SqlType unset for entity")))
+                                     [])
+                                    True)
+                                   P.NoReference)
+                                  Nothing])
+                              [])))
+                       Nothing}]
+/home/kb/workspace/persistent-transaction-weirdness/src/Main.hs:(37,1)-(46,2): Splicing declarations
+    share
+      [mkPersist sqlSettings, mkDeleteCascade sqlSettings,
+       mkMigrate "migrateAll"]
+      ([((((((((((P.EntityDef (P.HaskellName (T.pack "NamedPropers")))
+                   (P.DBName (T.pack "named_propers")))
+                  ((((((((P.FieldDef (P.HaskellName (T.pack "Id")))
+                           (P.DBName (T.pack "id")))
+                          ((P.FTTypeCon Nothing) (T.pack "NamedPropersId")))
+                         (P.SqlOther (T.pack "Primary Key")))
+                        [])
+                       True)
+                      (P.CompositeRef
+                         ((P.CompositeDef
+                             [(((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                                      (P.DBName (T.pack "entity")))
+                                     ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                                    (P.SqlOther (T.pack "SqlType unset for entity")))
+                                   [])
+                                  True)
+                                 P.NoReference)
+                                Nothing])
+                            [])))
+                     Nothing))
+                 [])
+                [(((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                         (P.DBName (T.pack "entity")))
+                        ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                       (P.SqlOther (T.pack "SqlType unset for entity")))
+                      [])
+                     True)
+                    P.NoReference)
+                   Nothing,
+                 (((((((P.FieldDef (P.HaskellName (T.pack "proper")))
+                         (P.DBName (T.pack "proper")))
+                        ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                       (P.SqlOther (T.pack "SqlType unset for proper")))
+                      [])
+                     True)
+                    P.NoReference)
+                   Nothing])
+               [(((P.UniqueDef (P.HaskellName (T.pack "UniqueEntity")))
+                    (P.DBName (T.pack "unique_entity")))
+                   [(P.HaskellName (T.pack "entity"), P.DBName (T.pack "entity"))])
+                  []])
+              [])
+             [])
+            (containers-0.6.2.1:Data.Map.Internal.fromDistinctAscList []))
+           False)
+          Nothing
+          {P.entityFields = [(((((((P.FieldDef
+                                      (P.HaskellName (T.pack "entity")))
+                                     (P.DBName (T.pack "entity")))
+                                    ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                                   (P.sqlType (Data.Proxy.Proxy :: Data.Proxy.Proxy T.Text)))
+                                  [])
+                                 True)
+                                P.NoReference)
+                               Nothing,
+                             (((((((P.FieldDef (P.HaskellName (T.pack "proper")))
+                                     (P.DBName (T.pack "proper")))
+                                    ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                                   (P.sqlType (Data.Proxy.Proxy :: Data.Proxy.Proxy T.Text)))
+                                  [])
+                                 True)
+                                P.NoReference)
+                               Nothing],
+           P.entityId = (((((((P.FieldDef (P.HaskellName (T.pack "Id")))
+                                (P.DBName (T.pack "id")))
+                               ((P.FTTypeCon Nothing) (T.pack "NamedPropersId")))
+                              (P.SqlOther (T.pack "Composite Reference")))
+                             [])
+                            True)
+                           (P.CompositeRef
+                              ((P.CompositeDef
+                                  [(((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                                           (P.DBName (T.pack "entity")))
+                                          ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                                         (P.SqlOther (T.pack "SqlType unset for entity")))
+                                        [])
+                                       True)
+                                      P.NoReference)
+                                     Nothing])
+                                 [])))
+                          Nothing}])
+  ======>
+    instance P.PersistField NamedPropers where
+      P.toPersistValue = Database.Persist.TH.entityToPersistValueHelper
+      P.fromPersistValue
+        = Database.Persist.TH.entityFromPersistValueHelper
+            ["entity", "proper"]
+    instance P.PersistFieldSql NamedPropers where
+      P.sqlType _ = P.SqlString
+    data NamedPropers
+      = NamedPropers {namedPropersEntity :: !T.Text,
+                      namedPropersProper :: !T.Text}
+    type NamedPropersId = P.Key NamedPropers
+    instance P.PersistEntity NamedPropers where
+      type P.PersistEntityBackend NamedPropers = P.SqlBackend
+      data P.Unique NamedPropers
+        = UniqueEntity T.Text
+        deriving Show
+      newtype P.Key NamedPropers
+        = NamedPropersKey {unNamedPropersKey :: T.Text}
+        deriving newtype (Show,
+                          Read,
+                          Eq,
+                          Ord,
+                          path-pieces-0.2.1:Web.PathPieces.PathPiece,
+                          http-api-data-0.4.1.1:Web.Internal.HttpApiData.ToHttpApiData,
+                          http-api-data-0.4.1.1:Web.Internal.HttpApiData.FromHttpApiData,
+                          P.PersistField,
+                          P.PersistFieldSql,
+                          aeson-1.4.7.1:Data.Aeson.Types.ToJSON.ToJSON,
+                          aeson-1.4.7.1:Data.Aeson.Types.FromJSON.FromJSON)
+      data P.EntityField NamedPropers typ
+        = typ ~ NamedPropersId => NamedPropersId |
+          typ ~ T.Text => NamedPropersEntity |
+          typ ~ T.Text => NamedPropersProper
+      P.keyToValues record
+        = [P.toPersistValue (unNamedPropersKey record)]
+      P.keyFromValues [x1_atIK]
+        = NamedPropersKey
+            <$>
+              (Database.Persist.TH.mapLeft
+                 ((fieldError (T.pack "named_propers")) (T.pack "entity"))
+                 . P.fromPersistValue)
+                x1_atIK
+      P.keyFromValues x_atIJ
+        = (Left
+             $ (mappend (T.pack "NamedPropers: keyFromValues failed on: "))
+                 (T.pack $ show x_atIJ))
+      P.entityDef _
+        = ((((((((((P.EntityDef (P.HaskellName (T.pack "NamedPropers")))
+                     (P.DBName (T.pack "named_propers")))
+                    ((((((((P.FieldDef (P.HaskellName (T.pack "Id")))
+                             (P.DBName (T.pack "id")))
+                            ((P.FTTypeCon Nothing) (T.pack "NamedPropersId")))
+                           (P.SqlOther (T.pack "Composite Reference")))
+                          [])
+                         True)
+                        (P.CompositeRef
+                           ((P.CompositeDef
+                               [(((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                                        (P.DBName (T.pack "entity")))
+                                       ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                                      (P.SqlOther (T.pack "SqlType unset for entity")))
+                                     [])
+                                    True)
+                                   P.NoReference)
+                                  Nothing])
+                              [])))
+                       Nothing))
+                   [])
+                  [(((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                           (P.DBName (T.pack "entity")))
+                          ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                         P.SqlString)
+                        [])
+                       True)
+                      P.NoReference)
+                     Nothing,
+                   (((((((P.FieldDef (P.HaskellName (T.pack "proper")))
+                           (P.DBName (T.pack "proper")))
+                          ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                         P.SqlString)
+                        [])
+                       True)
+                      P.NoReference)
+                     Nothing])
+                 [(((P.UniqueDef (P.HaskellName (T.pack "UniqueEntity")))
+                      (P.DBName (T.pack "unique_entity")))
+                     [(P.HaskellName (T.pack "entity"), P.DBName (T.pack "entity"))])
+                    []])
+                [])
+               [])
+              (containers-0.6.2.1:Data.Map.Internal.fromDistinctAscList []))
+             False)
+            Nothing
+      P.toPersistFields (NamedPropers x_atIB x_atIC)
+        = [P.SomePersistField x_atIB, P.SomePersistField x_atIC]
+      P.fromPersistValues [x1_atIE, x2_atIF]
+        = NamedPropers
+            <$>
+              (Database.Persist.TH.mapLeft
+                 ((fieldError (T.pack "named_propers")) (T.pack "entity"))
+                 . P.fromPersistValue)
+                x1_atIE
+            <*>
+              (Database.Persist.TH.mapLeft
+                 ((fieldError (T.pack "named_propers")) (T.pack "proper"))
+                 . P.fromPersistValue)
+                x2_atIF
+      P.fromPersistValues x_atID
+        = (Left
+             $ (mappend (T.pack "NamedPropers: fromPersistValues failed on: "))
+                 (T.pack $ show x_atID))
+      P.persistUniqueToFieldNames UniqueEntity {}
+        = [(P.HaskellName (T.pack "entity"), P.DBName (T.pack "entity"))]
+      P.persistUniqueToValues (UniqueEntity x_atIG)
+        = [P.toPersistValue x_atIG]
+      P.persistUniqueKeys (NamedPropers _entity_atIH _proper_atII)
+        = [UniqueEntity _entity_atIH]
+      P.persistFieldDef NamedPropersId
+        = (((((((P.FieldDef (P.HaskellName (T.pack "Id")))
+                  (P.DBName (T.pack "id")))
+                 ((P.FTTypeCon Nothing) (T.pack "NamedPropersId")))
+                (P.SqlOther (T.pack "Composite Reference")))
+               [])
+              True)
+             (P.CompositeRef
+                ((P.CompositeDef
+                    [(((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                             (P.DBName (T.pack "entity")))
+                            ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                           (P.SqlOther (T.pack "SqlType unset for entity")))
+                          [])
+                         True)
+                        P.NoReference)
+                       Nothing])
+                   [])))
+            Nothing
+      P.persistFieldDef NamedPropersEntity
+        = (((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                  (P.DBName (T.pack "entity")))
+                 ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                P.SqlString)
+               [])
+              True)
+             P.NoReference)
+            Nothing
+      P.persistFieldDef NamedPropersProper
+        = (((((((P.FieldDef (P.HaskellName (T.pack "proper")))
+                  (P.DBName (T.pack "proper")))
+                 ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                P.SqlString)
+               [])
+              True)
+             P.NoReference)
+            Nothing
+      P.persistIdField = NamedPropersId
+      P.fieldLens NamedPropersId
+        = (lensPTH P.entityKey)
+            (\ (P.Entity _ value_atIL) key_atIM
+               -> (P.Entity key_atIM) value_atIL)
+      P.fieldLens NamedPropersEntity
+        = (lensPTH (namedPropersEntity . P.entityVal))
+            (\ (P.Entity key_atIN value_atIO) x_atIP
+               -> (P.Entity key_atIN) value_atIO {namedPropersEntity = x_atIP})
+      P.fieldLens NamedPropersProper
+        = (lensPTH (namedPropersProper . P.entityVal))
+            (\ (P.Entity key_atIN value_atIO) x_atIP
+               -> (P.Entity key_atIN) value_atIO {namedPropersProper = x_atIP})
+    instance OnlyOneUniqueKey NamedPropers where
+      onlyUniqueP = (head . P.persistUniqueKeys)
+    instance AtLeastOneUniqueKey NamedPropers where
+      requireUniquesP
+        = (Data.List.NonEmpty.fromList . P.persistUniqueKeys)
+    instance (P.PersistQuery backend,
+              P.PersistEntityBackend NamedPropers ~ P.BaseBackend backend) =>
+             P.DeleteCascade NamedPropers backend where
+      P.deleteCascade key_atIQ = do P.delete key_atIQ
+    migrateAll :: P.Migration
+    migrateAll
+      = do let defs_atIR
+                 = [((((((((((P.EntityDef (P.HaskellName (T.pack "NamedPropers")))
+                               (P.DBName (T.pack "named_propers")))
+                              ((((((((P.FieldDef (P.HaskellName (T.pack "Id")))
+                                       (P.DBName (T.pack "id")))
+                                      ((P.FTTypeCon Nothing) (T.pack "NamedPropersId")))
+                                     (P.SqlOther (T.pack "Composite Reference")))
+                                    [])
+                                   True)
+                                  (P.CompositeRef
+                                     ((P.CompositeDef
+                                         [(((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                                                  (P.DBName (T.pack "entity")))
+                                                 ((P.FTTypeCon (Just (T.pack "T")))
+                                                    (T.pack "Text")))
+                                                (P.SqlOther (T.pack "SqlType unset for entity")))
+                                               [])
+                                              True)
+                                             P.NoReference)
+                                            Nothing])
+                                        [])))
+                                 Nothing))
+                             [])
+                            [(((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                                     (P.DBName (T.pack "entity")))
+                                    ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                                   P.SqlString)
+                                  [])
+                                 True)
+                                P.NoReference)
+                               Nothing,
+                             (((((((P.FieldDef (P.HaskellName (T.pack "proper")))
+                                     (P.DBName (T.pack "proper")))
+                                    ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                                   P.SqlString)
+                                  [])
+                                 True)
+                                P.NoReference)
+                               Nothing])
+                           [(((P.UniqueDef (P.HaskellName (T.pack "UniqueEntity")))
+                                (P.DBName (T.pack "unique_entity")))
+                               [(P.HaskellName (T.pack "entity"), P.DBName (T.pack "entity"))])
+                              []])
+                          [])
+                         [])
+                        (containers-0.6.2.1:Data.Map.Internal.fromDistinctAscList []))
+                       False)
+                      Nothing]
+           (P.migrate defs_atIR)
+             (((((((((((P.EntityDef (P.HaskellName (T.pack "NamedPropers")))
+                         (P.DBName (T.pack "named_propers")))
+                        ((((((((P.FieldDef (P.HaskellName (T.pack "Id")))
+                                 (P.DBName (T.pack "id")))
+                                ((P.FTTypeCon Nothing) (T.pack "NamedPropersId")))
+                               (P.SqlOther (T.pack "Composite Reference")))
+                              [])
+                             True)
+                            (P.CompositeRef
+                               ((P.CompositeDef
+                                   [(((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                                            (P.DBName (T.pack "entity")))
+                                           ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                                          (P.SqlOther (T.pack "SqlType unset for entity")))
+                                         [])
+                                        True)
+                                       P.NoReference)
+                                      Nothing])
+                                  [])))
+                           Nothing))
+                       [])
+                      [(((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                               (P.DBName (T.pack "entity")))
+                              ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                             P.SqlString)
+                            [])
+                           True)
+                          P.NoReference)
+                         Nothing,
+                       (((((((P.FieldDef (P.HaskellName (T.pack "proper")))
+                               (P.DBName (T.pack "proper")))
+                              ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                             P.SqlString)
+                            [])
+                           True)
+                          P.NoReference)
+                         Nothing])
+                     [(((P.UniqueDef (P.HaskellName (T.pack "UniqueEntity")))
+                          (P.DBName (T.pack "unique_entity")))
+                         [(P.HaskellName (T.pack "entity"), P.DBName (T.pack "entity"))])
+                        []])
+                    [])
+                   [])
+                  (containers-0.6.2.1:Data.Map.Internal.fromDistinctAscList []))
+                 False)
+                Nothing)
+/home/kb/workspace/persistent-transaction-weirdness/src/Main.hs:(71,20)-(72,43): Splicing expression
+    template-haskell-2.15.0.0:Language.Haskell.TH.Quote.quoteExp
+      q
+      "insert into named_propers (entity, proper) values (?, ?)\n\
+      \                   on conflict do nothing"
+  ======>
+    Data.String.fromString
+      "insert into named_propers (entity, proper) values (?, ?)
+                   on conflict do nothing"
+/home/kb/workspace/persistent-transaction-weirdness/src/Main.hs:(39,21)-(46,2): Splicing expression
+    template-haskell-2.15.0.0:Language.Haskell.TH.Quote.quoteExp
+      persistLowerCase
+      "\n\
+      \-- Maps entity to its proper form\n\
+      \NamedPropers\n\
+      \    entity T.Text\n\
+      \    proper T.Text\n\
+      \    Primary entity\n\
+      \    UniqueEntity entity\n"
+  ======>
+    [((((((((((P.EntityDef (P.HaskellName (T.pack "NamedPropers")))
+                (P.DBName (T.pack "named_propers")))
+               ((((((((P.FieldDef (P.HaskellName (T.pack "Id")))
+                        (P.DBName (T.pack "id")))
+                       ((P.FTTypeCon Nothing) (T.pack "NamedPropersId")))
+                      (P.SqlOther (T.pack "Primary Key")))
+                     [])
+                    True)
+                   (P.CompositeRef
+                      ((P.CompositeDef
+                          [(((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                                   (P.DBName (T.pack "entity")))
+                                  ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                                 (P.SqlOther (T.pack "SqlType unset for entity")))
+                                [])
+                               True)
+                              P.NoReference)
+                             Nothing])
+                         [])))
+                  Nothing))
+              [])
+             [(((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                      (P.DBName (T.pack "entity")))
+                     ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                    (P.SqlOther (T.pack "SqlType unset for entity")))
+                   [])
+                  True)
+                 P.NoReference)
+                Nothing,
+              (((((((P.FieldDef (P.HaskellName (T.pack "proper")))
+                      (P.DBName (T.pack "proper")))
+                     ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                    (P.SqlOther (T.pack "SqlType unset for proper")))
+                   [])
+                  True)
+                 P.NoReference)
+                Nothing])
+            [(((P.UniqueDef (P.HaskellName (T.pack "UniqueEntity")))
+                 (P.DBName (T.pack "unique_entity")))
+                [(P.HaskellName (T.pack "entity"), P.DBName (T.pack "entity"))])
+               []])
+           [])
+          [])
+         (containers-0.6.2.1:Data.Map.Internal.fromDistinctAscList []))
+        False)
+       Nothing
+       {P.entityFields = [(((((((P.FieldDef
+                                   (P.HaskellName (T.pack "entity")))
+                                  (P.DBName (T.pack "entity")))
+                                 ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                                (P.sqlType (Data.Proxy.Proxy :: Data.Proxy.Proxy T.Text)))
+                               [])
+                              True)
+                             P.NoReference)
+                            Nothing,
+                          (((((((P.FieldDef (P.HaskellName (T.pack "proper")))
+                                  (P.DBName (T.pack "proper")))
+                                 ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                                (P.sqlType (Data.Proxy.Proxy :: Data.Proxy.Proxy T.Text)))
+                               [])
+                              True)
+                             P.NoReference)
+                            Nothing],
+        P.entityId = (((((((P.FieldDef (P.HaskellName (T.pack "Id")))
+                             (P.DBName (T.pack "id")))
+                            ((P.FTTypeCon Nothing) (T.pack "NamedPropersId")))
+                           (P.SqlOther (T.pack "Composite Reference")))
+                          [])
+                         True)
+                        (P.CompositeRef
+                           ((P.CompositeDef
+                               [(((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                                        (P.DBName (T.pack "entity")))
+                                       ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                                      (P.SqlOther (T.pack "SqlType unset for entity")))
+                                     [])
+                                    True)
+                                   P.NoReference)
+                                  Nothing])
+                              [])))
+                       Nothing}]
+/home/kb/workspace/persistent-transaction-weirdness/src/Main.hs:(37,1)-(46,2): Splicing declarations
+    share
+      [mkPersist sqlSettings, mkDeleteCascade sqlSettings,
+       mkMigrate "migrateAll"]
+      ([((((((((((P.EntityDef (P.HaskellName (T.pack "NamedPropers")))
+                   (P.DBName (T.pack "named_propers")))
+                  ((((((((P.FieldDef (P.HaskellName (T.pack "Id")))
+                           (P.DBName (T.pack "id")))
+                          ((P.FTTypeCon Nothing) (T.pack "NamedPropersId")))
+                         (P.SqlOther (T.pack "Primary Key")))
+                        [])
+                       True)
+                      (P.CompositeRef
+                         ((P.CompositeDef
+                             [(((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                                      (P.DBName (T.pack "entity")))
+                                     ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                                    (P.SqlOther (T.pack "SqlType unset for entity")))
+                                   [])
+                                  True)
+                                 P.NoReference)
+                                Nothing])
+                            [])))
+                     Nothing))
+                 [])
+                [(((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                         (P.DBName (T.pack "entity")))
+                        ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                       (P.SqlOther (T.pack "SqlType unset for entity")))
+                      [])
+                     True)
+                    P.NoReference)
+                   Nothing,
+                 (((((((P.FieldDef (P.HaskellName (T.pack "proper")))
+                         (P.DBName (T.pack "proper")))
+                        ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                       (P.SqlOther (T.pack "SqlType unset for proper")))
+                      [])
+                     True)
+                    P.NoReference)
+                   Nothing])
+               [(((P.UniqueDef (P.HaskellName (T.pack "UniqueEntity")))
+                    (P.DBName (T.pack "unique_entity")))
+                   [(P.HaskellName (T.pack "entity"), P.DBName (T.pack "entity"))])
+                  []])
+              [])
+             [])
+            (containers-0.6.2.1:Data.Map.Internal.fromDistinctAscList []))
+           False)
+          Nothing
+          {P.entityFields = [(((((((P.FieldDef
+                                      (P.HaskellName (T.pack "entity")))
+                                     (P.DBName (T.pack "entity")))
+                                    ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                                   (P.sqlType (Data.Proxy.Proxy :: Data.Proxy.Proxy T.Text)))
+                                  [])
+                                 True)
+                                P.NoReference)
+                               Nothing,
+                             (((((((P.FieldDef (P.HaskellName (T.pack "proper")))
+                                     (P.DBName (T.pack "proper")))
+                                    ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                                   (P.sqlType (Data.Proxy.Proxy :: Data.Proxy.Proxy T.Text)))
+                                  [])
+                                 True)
+                                P.NoReference)
+                               Nothing],
+           P.entityId = (((((((P.FieldDef (P.HaskellName (T.pack "Id")))
+                                (P.DBName (T.pack "id")))
+                               ((P.FTTypeCon Nothing) (T.pack "NamedPropersId")))
+                              (P.SqlOther (T.pack "Composite Reference")))
+                             [])
+                            True)
+                           (P.CompositeRef
+                              ((P.CompositeDef
+                                  [(((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                                           (P.DBName (T.pack "entity")))
+                                          ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                                         (P.SqlOther (T.pack "SqlType unset for entity")))
+                                        [])
+                                       True)
+                                      P.NoReference)
+                                     Nothing])
+                                 [])))
+                          Nothing}])
+  ======>
+    instance P.PersistField NamedPropers where
+      P.toPersistValue = Database.Persist.TH.entityToPersistValueHelper
+      P.fromPersistValue
+        = Database.Persist.TH.entityFromPersistValueHelper
+            ["entity", "proper"]
+    instance P.PersistFieldSql NamedPropers where
+      P.sqlType _ = P.SqlString
+    data NamedPropers
+      = NamedPropers {namedPropersEntity :: !T.Text,
+                      namedPropersProper :: !T.Text}
+    type NamedPropersId = P.Key NamedPropers
+    instance P.PersistEntity NamedPropers where
+      type P.PersistEntityBackend NamedPropers = P.SqlBackend
+      data P.Unique NamedPropers
+        = UniqueEntity T.Text
+        deriving Show
+      newtype P.Key NamedPropers
+        = NamedPropersKey {unNamedPropersKey :: T.Text}
+        deriving newtype (Show,
+                          Read,
+                          Eq,
+                          Ord,
+                          path-pieces-0.2.1:Web.PathPieces.PathPiece,
+                          http-api-data-0.4.1.1:Web.Internal.HttpApiData.ToHttpApiData,
+                          http-api-data-0.4.1.1:Web.Internal.HttpApiData.FromHttpApiData,
+                          P.PersistField,
+                          P.PersistFieldSql,
+                          aeson-1.4.7.1:Data.Aeson.Types.ToJSON.ToJSON,
+                          aeson-1.4.7.1:Data.Aeson.Types.FromJSON.FromJSON)
+      data P.EntityField NamedPropers typ
+        = typ ~ NamedPropersId => NamedPropersId |
+          typ ~ T.Text => NamedPropersEntity |
+          typ ~ T.Text => NamedPropersProper
+      P.keyToValues record
+        = [P.toPersistValue (unNamedPropersKey record)]
+      P.keyFromValues [x1_av9p]
+        = NamedPropersKey
+            <$>
+              (Database.Persist.TH.mapLeft
+                 ((fieldError (T.pack "named_propers")) (T.pack "entity"))
+                 . P.fromPersistValue)
+                x1_av9p
+      P.keyFromValues x_av9o
+        = (Left
+             $ (mappend (T.pack "NamedPropers: keyFromValues failed on: "))
+                 (T.pack $ show x_av9o))
+      P.entityDef _
+        = ((((((((((P.EntityDef (P.HaskellName (T.pack "NamedPropers")))
+                     (P.DBName (T.pack "named_propers")))
+                    ((((((((P.FieldDef (P.HaskellName (T.pack "Id")))
+                             (P.DBName (T.pack "id")))
+                            ((P.FTTypeCon Nothing) (T.pack "NamedPropersId")))
+                           (P.SqlOther (T.pack "Composite Reference")))
+                          [])
+                         True)
+                        (P.CompositeRef
+                           ((P.CompositeDef
+                               [(((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                                        (P.DBName (T.pack "entity")))
+                                       ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                                      (P.SqlOther (T.pack "SqlType unset for entity")))
+                                     [])
+                                    True)
+                                   P.NoReference)
+                                  Nothing])
+                              [])))
+                       Nothing))
+                   [])
+                  [(((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                           (P.DBName (T.pack "entity")))
+                          ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                         P.SqlString)
+                        [])
+                       True)
+                      P.NoReference)
+                     Nothing,
+                   (((((((P.FieldDef (P.HaskellName (T.pack "proper")))
+                           (P.DBName (T.pack "proper")))
+                          ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                         P.SqlString)
+                        [])
+                       True)
+                      P.NoReference)
+                     Nothing])
+                 [(((P.UniqueDef (P.HaskellName (T.pack "UniqueEntity")))
+                      (P.DBName (T.pack "unique_entity")))
+                     [(P.HaskellName (T.pack "entity"), P.DBName (T.pack "entity"))])
+                    []])
+                [])
+               [])
+              (containers-0.6.2.1:Data.Map.Internal.fromDistinctAscList []))
+             False)
+            Nothing
+      P.toPersistFields (NamedPropers x_av9g x_av9h)
+        = [P.SomePersistField x_av9g, P.SomePersistField x_av9h]
+      P.fromPersistValues [x1_av9j, x2_av9k]
+        = NamedPropers
+            <$>
+              (Database.Persist.TH.mapLeft
+                 ((fieldError (T.pack "named_propers")) (T.pack "entity"))
+                 . P.fromPersistValue)
+                x1_av9j
+            <*>
+              (Database.Persist.TH.mapLeft
+                 ((fieldError (T.pack "named_propers")) (T.pack "proper"))
+                 . P.fromPersistValue)
+                x2_av9k
+      P.fromPersistValues x_av9i
+        = (Left
+             $ (mappend (T.pack "NamedPropers: fromPersistValues failed on: "))
+                 (T.pack $ show x_av9i))
+      P.persistUniqueToFieldNames UniqueEntity {}
+        = [(P.HaskellName (T.pack "entity"), P.DBName (T.pack "entity"))]
+      P.persistUniqueToValues (UniqueEntity x_av9l)
+        = [P.toPersistValue x_av9l]
+      P.persistUniqueKeys (NamedPropers _entity_av9m _proper_av9n)
+        = [UniqueEntity _entity_av9m]
+      P.persistFieldDef NamedPropersId
+        = (((((((P.FieldDef (P.HaskellName (T.pack "Id")))
+                  (P.DBName (T.pack "id")))
+                 ((P.FTTypeCon Nothing) (T.pack "NamedPropersId")))
+                (P.SqlOther (T.pack "Composite Reference")))
+               [])
+              True)
+             (P.CompositeRef
+                ((P.CompositeDef
+                    [(((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                             (P.DBName (T.pack "entity")))
+                            ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                           (P.SqlOther (T.pack "SqlType unset for entity")))
+                          [])
+                         True)
+                        P.NoReference)
+                       Nothing])
+                   [])))
+            Nothing
+      P.persistFieldDef NamedPropersEntity
+        = (((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                  (P.DBName (T.pack "entity")))
+                 ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                P.SqlString)
+               [])
+              True)
+             P.NoReference)
+            Nothing
+      P.persistFieldDef NamedPropersProper
+        = (((((((P.FieldDef (P.HaskellName (T.pack "proper")))
+                  (P.DBName (T.pack "proper")))
+                 ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                P.SqlString)
+               [])
+              True)
+             P.NoReference)
+            Nothing
+      P.persistIdField = NamedPropersId
+      P.fieldLens NamedPropersId
+        = (lensPTH P.entityKey)
+            (\ (P.Entity _ value_av9q) key_av9r
+               -> (P.Entity key_av9r) value_av9q)
+      P.fieldLens NamedPropersEntity
+        = (lensPTH (namedPropersEntity . P.entityVal))
+            (\ (P.Entity key_av9s value_av9t) x_av9u
+               -> (P.Entity key_av9s) value_av9t {namedPropersEntity = x_av9u})
+      P.fieldLens NamedPropersProper
+        = (lensPTH (namedPropersProper . P.entityVal))
+            (\ (P.Entity key_av9s value_av9t) x_av9u
+               -> (P.Entity key_av9s) value_av9t {namedPropersProper = x_av9u})
+    instance OnlyOneUniqueKey NamedPropers where
+      onlyUniqueP = (head . P.persistUniqueKeys)
+    instance AtLeastOneUniqueKey NamedPropers where
+      requireUniquesP
+        = (Data.List.NonEmpty.fromList . P.persistUniqueKeys)
+    instance (P.PersistQuery backend,
+              P.PersistEntityBackend NamedPropers ~ P.BaseBackend backend) =>
+             P.DeleteCascade NamedPropers backend where
+      P.deleteCascade key_av9v = do P.delete key_av9v
+    migrateAll :: P.Migration
+    migrateAll
+      = do let defs_av9w
+                 = [((((((((((P.EntityDef (P.HaskellName (T.pack "NamedPropers")))
+                               (P.DBName (T.pack "named_propers")))
+                              ((((((((P.FieldDef (P.HaskellName (T.pack "Id")))
+                                       (P.DBName (T.pack "id")))
+                                      ((P.FTTypeCon Nothing) (T.pack "NamedPropersId")))
+                                     (P.SqlOther (T.pack "Composite Reference")))
+                                    [])
+                                   True)
+                                  (P.CompositeRef
+                                     ((P.CompositeDef
+                                         [(((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                                                  (P.DBName (T.pack "entity")))
+                                                 ((P.FTTypeCon (Just (T.pack "T")))
+                                                    (T.pack "Text")))
+                                                (P.SqlOther (T.pack "SqlType unset for entity")))
+                                               [])
+                                              True)
+                                             P.NoReference)
+                                            Nothing])
+                                        [])))
+                                 Nothing))
+                             [])
+                            [(((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                                     (P.DBName (T.pack "entity")))
+                                    ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                                   P.SqlString)
+                                  [])
+                                 True)
+                                P.NoReference)
+                               Nothing,
+                             (((((((P.FieldDef (P.HaskellName (T.pack "proper")))
+                                     (P.DBName (T.pack "proper")))
+                                    ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                                   P.SqlString)
+                                  [])
+                                 True)
+                                P.NoReference)
+                               Nothing])
+                           [(((P.UniqueDef (P.HaskellName (T.pack "UniqueEntity")))
+                                (P.DBName (T.pack "unique_entity")))
+                               [(P.HaskellName (T.pack "entity"), P.DBName (T.pack "entity"))])
+                              []])
+                          [])
+                         [])
+                        (containers-0.6.2.1:Data.Map.Internal.fromDistinctAscList []))
+                       False)
+                      Nothing]
+           (P.migrate defs_av9w)
+             (((((((((((P.EntityDef (P.HaskellName (T.pack "NamedPropers")))
+                         (P.DBName (T.pack "named_propers")))
+                        ((((((((P.FieldDef (P.HaskellName (T.pack "Id")))
+                                 (P.DBName (T.pack "id")))
+                                ((P.FTTypeCon Nothing) (T.pack "NamedPropersId")))
+                               (P.SqlOther (T.pack "Composite Reference")))
+                              [])
+                             True)
+                            (P.CompositeRef
+                               ((P.CompositeDef
+                                   [(((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                                            (P.DBName (T.pack "entity")))
+                                           ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                                          (P.SqlOther (T.pack "SqlType unset for entity")))
+                                         [])
+                                        True)
+                                       P.NoReference)
+                                      Nothing])
+                                  [])))
+                           Nothing))
+                       [])
+                      [(((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                               (P.DBName (T.pack "entity")))
+                              ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                             P.SqlString)
+                            [])
+                           True)
+                          P.NoReference)
+                         Nothing,
+                       (((((((P.FieldDef (P.HaskellName (T.pack "proper")))
+                               (P.DBName (T.pack "proper")))
+                              ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                             P.SqlString)
+                            [])
+                           True)
+                          P.NoReference)
+                         Nothing])
+                     [(((P.UniqueDef (P.HaskellName (T.pack "UniqueEntity")))
+                          (P.DBName (T.pack "unique_entity")))
+                         [(P.HaskellName (T.pack "entity"), P.DBName (T.pack "entity"))])
+                        []])
+                    [])
+                   [])
+                  (containers-0.6.2.1:Data.Map.Internal.fromDistinctAscList []))
+                 False)
+                Nothing)
+/home/kb/workspace/persistent-transaction-weirdness/src/Main.hs:(71,20)-(72,43): Splicing expression
+    template-haskell-2.15.0.0:Language.Haskell.TH.Quote.quoteExp
+      q
+      "insert into named_propers (entity, proper) values (?, ?)\n\
+      \                   on conflict do nothing"
+  ======>
+    Data.String.fromString
+      "insert into named_propers (entity, proper) values (?, ?)
+                   on conflict do nothing"
+/home/kb/workspace/persistent-transaction-weirdness/src/Main.hs:(39,21)-(46,2): Splicing expression
+    template-haskell-2.15.0.0:Language.Haskell.TH.Quote.quoteExp
+      persistLowerCase
+      "\n\
+      \-- Maps entity to its proper form\n\
+      \NamedPropers\n\
+      \    entity T.Text\n\
+      \    proper T.Text\n\
+      \    Primary entity\n\
+      \    UniqueEntity entity\n"
+  ======>
+    [((((((((((P.EntityDef (P.HaskellName (T.pack "NamedPropers")))
+                (P.DBName (T.pack "named_propers")))
+               ((((((((P.FieldDef (P.HaskellName (T.pack "Id")))
+                        (P.DBName (T.pack "id")))
+                       ((P.FTTypeCon Nothing) (T.pack "NamedPropersId")))
+                      (P.SqlOther (T.pack "Primary Key")))
+                     [])
+                    True)
+                   (P.CompositeRef
+                      ((P.CompositeDef
+                          [(((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                                   (P.DBName (T.pack "entity")))
+                                  ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                                 (P.SqlOther (T.pack "SqlType unset for entity")))
+                                [])
+                               True)
+                              P.NoReference)
+                             Nothing])
+                         [])))
+                  Nothing))
+              [])
+             [(((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                      (P.DBName (T.pack "entity")))
+                     ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                    (P.SqlOther (T.pack "SqlType unset for entity")))
+                   [])
+                  True)
+                 P.NoReference)
+                Nothing,
+              (((((((P.FieldDef (P.HaskellName (T.pack "proper")))
+                      (P.DBName (T.pack "proper")))
+                     ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                    (P.SqlOther (T.pack "SqlType unset for proper")))
+                   [])
+                  True)
+                 P.NoReference)
+                Nothing])
+            [(((P.UniqueDef (P.HaskellName (T.pack "UniqueEntity")))
+                 (P.DBName (T.pack "unique_entity")))
+                [(P.HaskellName (T.pack "entity"), P.DBName (T.pack "entity"))])
+               []])
+           [])
+          [])
+         (containers-0.6.2.1:Data.Map.Internal.fromDistinctAscList []))
+        False)
+       Nothing
+       {P.entityFields = [(((((((P.FieldDef
+                                   (P.HaskellName (T.pack "entity")))
+                                  (P.DBName (T.pack "entity")))
+                                 ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                                (P.sqlType (Data.Proxy.Proxy :: Data.Proxy.Proxy T.Text)))
+                               [])
+                              True)
+                             P.NoReference)
+                            Nothing,
+                          (((((((P.FieldDef (P.HaskellName (T.pack "proper")))
+                                  (P.DBName (T.pack "proper")))
+                                 ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                                (P.sqlType (Data.Proxy.Proxy :: Data.Proxy.Proxy T.Text)))
+                               [])
+                              True)
+                             P.NoReference)
+                            Nothing],
+        P.entityId = (((((((P.FieldDef (P.HaskellName (T.pack "Id")))
+                             (P.DBName (T.pack "id")))
+                            ((P.FTTypeCon Nothing) (T.pack "NamedPropersId")))
+                           (P.SqlOther (T.pack "Composite Reference")))
+                          [])
+                         True)
+                        (P.CompositeRef
+                           ((P.CompositeDef
+                               [(((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                                        (P.DBName (T.pack "entity")))
+                                       ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                                      (P.SqlOther (T.pack "SqlType unset for entity")))
+                                     [])
+                                    True)
+                                   P.NoReference)
+                                  Nothing])
+                              [])))
+                       Nothing}]
+/home/kb/workspace/persistent-transaction-weirdness/src/Main.hs:(37,1)-(46,2): Splicing declarations
+    share
+      [mkPersist sqlSettings, mkDeleteCascade sqlSettings,
+       mkMigrate "migrateAll"]
+      ([((((((((((P.EntityDef (P.HaskellName (T.pack "NamedPropers")))
+                   (P.DBName (T.pack "named_propers")))
+                  ((((((((P.FieldDef (P.HaskellName (T.pack "Id")))
+                           (P.DBName (T.pack "id")))
+                          ((P.FTTypeCon Nothing) (T.pack "NamedPropersId")))
+                         (P.SqlOther (T.pack "Primary Key")))
+                        [])
+                       True)
+                      (P.CompositeRef
+                         ((P.CompositeDef
+                             [(((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                                      (P.DBName (T.pack "entity")))
+                                     ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                                    (P.SqlOther (T.pack "SqlType unset for entity")))
+                                   [])
+                                  True)
+                                 P.NoReference)
+                                Nothing])
+                            [])))
+                     Nothing))
+                 [])
+                [(((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                         (P.DBName (T.pack "entity")))
+                        ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                       (P.SqlOther (T.pack "SqlType unset for entity")))
+                      [])
+                     True)
+                    P.NoReference)
+                   Nothing,
+                 (((((((P.FieldDef (P.HaskellName (T.pack "proper")))
+                         (P.DBName (T.pack "proper")))
+                        ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                       (P.SqlOther (T.pack "SqlType unset for proper")))
+                      [])
+                     True)
+                    P.NoReference)
+                   Nothing])
+               [(((P.UniqueDef (P.HaskellName (T.pack "UniqueEntity")))
+                    (P.DBName (T.pack "unique_entity")))
+                   [(P.HaskellName (T.pack "entity"), P.DBName (T.pack "entity"))])
+                  []])
+              [])
+             [])
+            (containers-0.6.2.1:Data.Map.Internal.fromDistinctAscList []))
+           False)
+          Nothing
+          {P.entityFields = [(((((((P.FieldDef
+                                      (P.HaskellName (T.pack "entity")))
+                                     (P.DBName (T.pack "entity")))
+                                    ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                                   (P.sqlType (Data.Proxy.Proxy :: Data.Proxy.Proxy T.Text)))
+                                  [])
+                                 True)
+                                P.NoReference)
+                               Nothing,
+                             (((((((P.FieldDef (P.HaskellName (T.pack "proper")))
+                                     (P.DBName (T.pack "proper")))
+                                    ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                                   (P.sqlType (Data.Proxy.Proxy :: Data.Proxy.Proxy T.Text)))
+                                  [])
+                                 True)
+                                P.NoReference)
+                               Nothing],
+           P.entityId = (((((((P.FieldDef (P.HaskellName (T.pack "Id")))
+                                (P.DBName (T.pack "id")))
+                               ((P.FTTypeCon Nothing) (T.pack "NamedPropersId")))
+                              (P.SqlOther (T.pack "Composite Reference")))
+                             [])
+                            True)
+                           (P.CompositeRef
+                              ((P.CompositeDef
+                                  [(((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                                           (P.DBName (T.pack "entity")))
+                                          ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                                         (P.SqlOther (T.pack "SqlType unset for entity")))
+                                        [])
+                                       True)
+                                      P.NoReference)
+                                     Nothing])
+                                 [])))
+                          Nothing}])
+  ======>
+    instance P.PersistField NamedPropers where
+      P.toPersistValue = Database.Persist.TH.entityToPersistValueHelper
+      P.fromPersistValue
+        = Database.Persist.TH.entityFromPersistValueHelper
+            ["entity", "proper"]
+    instance P.PersistFieldSql NamedPropers where
+      P.sqlType _ = P.SqlString
+    data NamedPropers
+      = NamedPropers {namedPropersEntity :: !T.Text,
+                      namedPropersProper :: !T.Text}
+    type NamedPropersId = P.Key NamedPropers
+    instance P.PersistEntity NamedPropers where
+      type P.PersistEntityBackend NamedPropers = P.SqlBackend
+      data P.Unique NamedPropers
+        = UniqueEntity T.Text
+        deriving Show
+      newtype P.Key NamedPropers
+        = NamedPropersKey {unNamedPropersKey :: T.Text}
+        deriving newtype (Show,
+                          Read,
+                          Eq,
+                          Ord,
+                          path-pieces-0.2.1:Web.PathPieces.PathPiece,
+                          http-api-data-0.4.1.1:Web.Internal.HttpApiData.ToHttpApiData,
+                          http-api-data-0.4.1.1:Web.Internal.HttpApiData.FromHttpApiData,
+                          P.PersistField,
+                          P.PersistFieldSql,
+                          aeson-1.4.7.1:Data.Aeson.Types.ToJSON.ToJSON,
+                          aeson-1.4.7.1:Data.Aeson.Types.FromJSON.FromJSON)
+      data P.EntityField NamedPropers typ
+        = typ ~ NamedPropersId => NamedPropersId |
+          typ ~ T.Text => NamedPropersEntity |
+          typ ~ T.Text => NamedPropersProper
+      P.keyToValues record
+        = [P.toPersistValue (unNamedPropersKey record)]
+      P.keyFromValues [x1_aw0o]
+        = NamedPropersKey
+            <$>
+              (Database.Persist.TH.mapLeft
+                 ((fieldError (T.pack "named_propers")) (T.pack "entity"))
+                 . P.fromPersistValue)
+                x1_aw0o
+      P.keyFromValues x_aw0n
+        = (Left
+             $ (mappend (T.pack "NamedPropers: keyFromValues failed on: "))
+                 (T.pack $ show x_aw0n))
+      P.entityDef _
+        = ((((((((((P.EntityDef (P.HaskellName (T.pack "NamedPropers")))
+                     (P.DBName (T.pack "named_propers")))
+                    ((((((((P.FieldDef (P.HaskellName (T.pack "Id")))
+                             (P.DBName (T.pack "id")))
+                            ((P.FTTypeCon Nothing) (T.pack "NamedPropersId")))
+                           (P.SqlOther (T.pack "Composite Reference")))
+                          [])
+                         True)
+                        (P.CompositeRef
+                           ((P.CompositeDef
+                               [(((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                                        (P.DBName (T.pack "entity")))
+                                       ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                                      (P.SqlOther (T.pack "SqlType unset for entity")))
+                                     [])
+                                    True)
+                                   P.NoReference)
+                                  Nothing])
+                              [])))
+                       Nothing))
+                   [])
+                  [(((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                           (P.DBName (T.pack "entity")))
+                          ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                         P.SqlString)
+                        [])
+                       True)
+                      P.NoReference)
+                     Nothing,
+                   (((((((P.FieldDef (P.HaskellName (T.pack "proper")))
+                           (P.DBName (T.pack "proper")))
+                          ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                         P.SqlString)
+                        [])
+                       True)
+                      P.NoReference)
+                     Nothing])
+                 [(((P.UniqueDef (P.HaskellName (T.pack "UniqueEntity")))
+                      (P.DBName (T.pack "unique_entity")))
+                     [(P.HaskellName (T.pack "entity"), P.DBName (T.pack "entity"))])
+                    []])
+                [])
+               [])
+              (containers-0.6.2.1:Data.Map.Internal.fromDistinctAscList []))
+             False)
+            Nothing
+      P.toPersistFields (NamedPropers x_aw0f x_aw0g)
+        = [P.SomePersistField x_aw0f, P.SomePersistField x_aw0g]
+      P.fromPersistValues [x1_aw0i, x2_aw0j]
+        = NamedPropers
+            <$>
+              (Database.Persist.TH.mapLeft
+                 ((fieldError (T.pack "named_propers")) (T.pack "entity"))
+                 . P.fromPersistValue)
+                x1_aw0i
+            <*>
+              (Database.Persist.TH.mapLeft
+                 ((fieldError (T.pack "named_propers")) (T.pack "proper"))
+                 . P.fromPersistValue)
+                x2_aw0j
+      P.fromPersistValues x_aw0h
+        = (Left
+             $ (mappend (T.pack "NamedPropers: fromPersistValues failed on: "))
+                 (T.pack $ show x_aw0h))
+      P.persistUniqueToFieldNames UniqueEntity {}
+        = [(P.HaskellName (T.pack "entity"), P.DBName (T.pack "entity"))]
+      P.persistUniqueToValues (UniqueEntity x_aw0k)
+        = [P.toPersistValue x_aw0k]
+      P.persistUniqueKeys (NamedPropers _entity_aw0l _proper_aw0m)
+        = [UniqueEntity _entity_aw0l]
+      P.persistFieldDef NamedPropersId
+        = (((((((P.FieldDef (P.HaskellName (T.pack "Id")))
+                  (P.DBName (T.pack "id")))
+                 ((P.FTTypeCon Nothing) (T.pack "NamedPropersId")))
+                (P.SqlOther (T.pack "Composite Reference")))
+               [])
+              True)
+             (P.CompositeRef
+                ((P.CompositeDef
+                    [(((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                             (P.DBName (T.pack "entity")))
+                            ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                           (P.SqlOther (T.pack "SqlType unset for entity")))
+                          [])
+                         True)
+                        P.NoReference)
+                       Nothing])
+                   [])))
+            Nothing
+      P.persistFieldDef NamedPropersEntity
+        = (((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                  (P.DBName (T.pack "entity")))
+                 ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                P.SqlString)
+               [])
+              True)
+             P.NoReference)
+            Nothing
+      P.persistFieldDef NamedPropersProper
+        = (((((((P.FieldDef (P.HaskellName (T.pack "proper")))
+                  (P.DBName (T.pack "proper")))
+                 ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                P.SqlString)
+               [])
+              True)
+             P.NoReference)
+            Nothing
+      P.persistIdField = NamedPropersId
+      P.fieldLens NamedPropersId
+        = (lensPTH P.entityKey)
+            (\ (P.Entity _ value_aw0p) key_aw0q
+               -> (P.Entity key_aw0q) value_aw0p)
+      P.fieldLens NamedPropersEntity
+        = (lensPTH (namedPropersEntity . P.entityVal))
+            (\ (P.Entity key_aw0r value_aw0s) x_aw0t
+               -> (P.Entity key_aw0r) value_aw0s {namedPropersEntity = x_aw0t})
+      P.fieldLens NamedPropersProper
+        = (lensPTH (namedPropersProper . P.entityVal))
+            (\ (P.Entity key_aw0r value_aw0s) x_aw0t
+               -> (P.Entity key_aw0r) value_aw0s {namedPropersProper = x_aw0t})
+    instance OnlyOneUniqueKey NamedPropers where
+      onlyUniqueP = (head . P.persistUniqueKeys)
+    instance AtLeastOneUniqueKey NamedPropers where
+      requireUniquesP
+        = (Data.List.NonEmpty.fromList . P.persistUniqueKeys)
+    instance (P.PersistQuery backend,
+              P.PersistEntityBackend NamedPropers ~ P.BaseBackend backend) =>
+             P.DeleteCascade NamedPropers backend where
+      P.deleteCascade key_aw0u = do P.delete key_aw0u
+    migrateAll :: P.Migration
+    migrateAll
+      = do let defs_aw0v
+                 = [((((((((((P.EntityDef (P.HaskellName (T.pack "NamedPropers")))
+                               (P.DBName (T.pack "named_propers")))
+                              ((((((((P.FieldDef (P.HaskellName (T.pack "Id")))
+                                       (P.DBName (T.pack "id")))
+                                      ((P.FTTypeCon Nothing) (T.pack "NamedPropersId")))
+                                     (P.SqlOther (T.pack "Composite Reference")))
+                                    [])
+                                   True)
+                                  (P.CompositeRef
+                                     ((P.CompositeDef
+                                         [(((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                                                  (P.DBName (T.pack "entity")))
+                                                 ((P.FTTypeCon (Just (T.pack "T")))
+                                                    (T.pack "Text")))
+                                                (P.SqlOther (T.pack "SqlType unset for entity")))
+                                               [])
+                                              True)
+                                             P.NoReference)
+                                            Nothing])
+                                        [])))
+                                 Nothing))
+                             [])
+                            [(((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                                     (P.DBName (T.pack "entity")))
+                                    ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                                   P.SqlString)
+                                  [])
+                                 True)
+                                P.NoReference)
+                               Nothing,
+                             (((((((P.FieldDef (P.HaskellName (T.pack "proper")))
+                                     (P.DBName (T.pack "proper")))
+                                    ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                                   P.SqlString)
+                                  [])
+                                 True)
+                                P.NoReference)
+                               Nothing])
+                           [(((P.UniqueDef (P.HaskellName (T.pack "UniqueEntity")))
+                                (P.DBName (T.pack "unique_entity")))
+                               [(P.HaskellName (T.pack "entity"), P.DBName (T.pack "entity"))])
+                              []])
+                          [])
+                         [])
+                        (containers-0.6.2.1:Data.Map.Internal.fromDistinctAscList []))
+                       False)
+                      Nothing]
+           (P.migrate defs_aw0v)
+             (((((((((((P.EntityDef (P.HaskellName (T.pack "NamedPropers")))
+                         (P.DBName (T.pack "named_propers")))
+                        ((((((((P.FieldDef (P.HaskellName (T.pack "Id")))
+                                 (P.DBName (T.pack "id")))
+                                ((P.FTTypeCon Nothing) (T.pack "NamedPropersId")))
+                               (P.SqlOther (T.pack "Composite Reference")))
+                              [])
+                             True)
+                            (P.CompositeRef
+                               ((P.CompositeDef
+                                   [(((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                                            (P.DBName (T.pack "entity")))
+                                           ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                                          (P.SqlOther (T.pack "SqlType unset for entity")))
+                                         [])
+                                        True)
+                                       P.NoReference)
+                                      Nothing])
+                                  [])))
+                           Nothing))
+                       [])
+                      [(((((((P.FieldDef (P.HaskellName (T.pack "entity")))
+                               (P.DBName (T.pack "entity")))
+                              ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                             P.SqlString)
+                            [])
+                           True)
+                          P.NoReference)
+                         Nothing,
+                       (((((((P.FieldDef (P.HaskellName (T.pack "proper")))
+                               (P.DBName (T.pack "proper")))
+                              ((P.FTTypeCon (Just (T.pack "T"))) (T.pack "Text")))
+                             P.SqlString)
+                            [])
+                           True)
+                          P.NoReference)
+                         Nothing])
+                     [(((P.UniqueDef (P.HaskellName (T.pack "UniqueEntity")))
+                          (P.DBName (T.pack "unique_entity")))
+                         [(P.HaskellName (T.pack "entity"), P.DBName (T.pack "entity"))])
+                        []])
+                    [])
+                   [])
+                  (containers-0.6.2.1:Data.Map.Internal.fromDistinctAscList []))
+                 False)
+                Nothing)
+/home/kb/workspace/persistent-transaction-weirdness/src/Main.hs:(71,20)-(72,43): Splicing expression
+    template-haskell-2.15.0.0:Language.Haskell.TH.Quote.quoteExp
+      q
+      "insert into named_propers (entity, proper) values (?, ?)\n\
+      \                   on conflict do nothing"
+  ======>
+    Data.String.fromString
+      "insert into named_propers (entity, proper) values (?, ?)
+                   on conflict do nothing"

@@ -22,7 +22,6 @@ import Data.Pool
 import qualified Data.String.Class as S
 import qualified Data.Text as T
 import qualified Database.Esqueleto as E
-import qualified Database.Esqueleto.PostgreSQL as E
 import qualified Database.Persist.Postgresql as P
 import Database.Persist.TH
 import Text.InterpolatedString.Perl6 (q)
@@ -66,18 +65,27 @@ main = do
                     { namedPropersEntity = name,
                       namedPropersProper = T.toLower name
                     }
-            -- E.rawExecute
-            --   [q|insert into named_propers (entity, proper) values (?, ?)
-            --      on conflict do nothing|]
-            --   [P.PersistText (T.toLower name), P.PersistText name]
-            P.upsert v [NamedPropersProper P.=. T.toLower name]
-            -- P.repsert
-            --   (NamedPropersKey name)
-            --   ( NamedPropers
-            --       { namedPropersEntity = name,
-            --         namedPropersProper = T.toLower name
-            --       }
-            --   )
+            -- this works fine
+            when False $ do
+              E.rawExecute
+                [q|insert into named_propers (entity, proper) values (?, ?)
+                   on conflict do nothing|]
+                [P.PersistText (T.toLower name), P.PersistText name]
+            -- this works fine, but needs you to properly match the fields
+            when True $ do
+              void $ P.upsert v [NamedPropersProper P.=. T.toLower name]
+            -- this fails
+            when True $ do
+              void $ P.upsert v []
+            -- this fails
+            when False $ do
+              P.repsert
+                (NamedPropersKey name)
+                ( NamedPropers
+                    { namedPropersEntity = name,
+                      namedPropersProper = T.toLower name
+                    }
+                )
             pure ()
 
 runDb :: Pool P.SqlBackend -> ReaderT P.SqlBackend IO b -> IO b
