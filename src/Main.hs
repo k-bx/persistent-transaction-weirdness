@@ -43,6 +43,7 @@ NamedPropers
     entity T.Text
     proper T.Text
     Primary entity
+    UniqueEntity entity
 |]
 
 main :: IO ()
@@ -65,29 +66,19 @@ main = do
                     { namedPropersEntity = name,
                       namedPropersProper = T.toLower name
                     }
-            E.rawExecute
-              [q|insert into named_propers (entity, proper) values (?, ?)
-                 on conflict do nothing|]
-              [P.PersistText (T.toLower name), P.PersistText name]
-
--- E.rawExecute
---   [q|insert into named_propers (entity, proper) values (?, ?)
---      on conflict do nothing|]
---   [P.PersistText (T.toLower name), P.PersistText name]
--- (NamedPropersKey name)
--- ( NamedPropers
---     { namedPropersEntity = name,
---       namedPropersProper = T.toLower name
---     }
--- )
-
--- P.repsert
---   (NamedPropersKey name)
---   ( NamedPropers
---       { namedPropersEntity = name,
---         namedPropersProper = T.toLower name
---       }
---   )
+            -- E.rawExecute
+            --   [q|insert into named_propers (entity, proper) values (?, ?)
+            --      on conflict do nothing|]
+            --   [P.PersistText (T.toLower name), P.PersistText name]
+            P.upsert v [NamedPropersProper P.=. T.toLower name]
+            -- P.repsert
+            --   (NamedPropersKey name)
+            --   ( NamedPropers
+            --       { namedPropersEntity = name,
+            --         namedPropersProper = T.toLower name
+            --       }
+            --   )
+            pure ()
 
 runDb :: Pool P.SqlBackend -> ReaderT P.SqlBackend IO b -> IO b
 runDb pool f = do
