@@ -35,7 +35,7 @@ instance MonadLogger IO where
     liftIO (S.hPutStrLn stderr (tidStrPart <> (fromLogStr (toLogStr msg))))
 
 share
-  [mkPersist sqlSettings, mkDeleteCascade sqlSettings, mkMigrate "migrateAll"]
+  [mkPersist sqlSettings, mkMigrate "migrateAll"]
   [persistLowerCase|
 -- Maps entity to its proper form
 NamedPropers
@@ -67,6 +67,7 @@ main = do
                     }
             -- this works fine
             when False $ do
+              -- also see https://github.com/yesodweb/persistent/pull/913
               E.rawExecute
                 [q|insert into named_propers (entity, proper) values (?, ?)
                    on conflict do nothing|]
